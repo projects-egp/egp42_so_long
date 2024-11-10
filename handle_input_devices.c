@@ -1,14 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_window.c                                    :+:      :+:    :+:   */
+/*   handle_input_devices.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 22:53:05 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/11/02 23:03:32 by enrgil-p         ###   ########.fr       */
+/*   Created: 2024/11/10 21:09:31 by enrgil-p          #+#    #+#             */
+/*   Updated: 2024/11/10 21:09:35 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*HERE I PRETEND TO CREATE FUNCTIONS TO MANAGE WINDOW*/
-/*REMEMBER man, mlx_new_window functions*/
+
