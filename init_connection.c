@@ -6,8 +6,15 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:42:36 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/11/16 21:42:38 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:50:18 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "general.h"
 
+int	main(void)
+{
+	void	*mlx_ptr;
+
+	mlx_ptr = mlx_init();
+}
