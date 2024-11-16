@@ -6,8 +6,9 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/11/16 21:46:52 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2024/11/16 22:20:00 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx_init.h"
