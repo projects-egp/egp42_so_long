@@ -6,10 +6,10 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/11/16 22:35:39 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2024/11/16 23:49:53 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibx-linux/mlx.h"
-#include "minilibx-linux/mlx_int.h"
+#include "mlx_linux/mlx.h"
+#include "mlx_linux/mlx_int.h"
 #include <unistd.h>
