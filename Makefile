@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/04 20:54:41 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/04 22:21:06 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ RM = rm -f
 all: $(NAME)
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
+	@make -s -C $(LIBFT_DIR)
 	$(info CREATED $(LIBFT))
 
 $(NAME): $(LIBFT) $(OBJS)
@@ -40,14 +40,14 @@ fsanitize: $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	@make -C $(LIBFT_DIR) clean
+	@make -s -C $(LIBFT_DIR) clean
 	$(info REMOVED OBJECTS AND LIBFT/OBJECTS)
 
 compclean: all clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@make -C $(LIBFT_DIR) fclean
+	@make -s -C $(LIBFT_DIR) fclean
 	$(info REMOVED $(NAME) AND -IN CASE THESE EXISTED YET- OBJECTS)
 
 re: fclean all
