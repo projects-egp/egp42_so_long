@@ -6,12 +6,12 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/06 20:37:00 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/06 20:41:23 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SOURCES =	init_connection.c	#main.c map_format.c\
+SOURCES =	main.c map_format.c\
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
