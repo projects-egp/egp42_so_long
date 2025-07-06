@@ -6,13 +6,19 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/11/23 21:16:28 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/06 16:28:44 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef GENERAL_H
+# define GENERAL_H
 
 #include "mlx_linux/mlx.h"
 #include "mlx_linux/mlx_int.h"
 #include <unistd.h>
+#include "libft/complete_libft.h"
+
+int	map_format(char *map_file, int *error_flag);
 
 #define WIN_SIZE_X	976
 #define WIN_SIZE_Y	576
@@ -29,3 +35,5 @@ typedef	struct	s_data
 
 void	*create_image(void *mlx_ptr);
 void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+#endif

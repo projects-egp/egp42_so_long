@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_format.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/06 16:27:23 by enrgil-p         ###   ########.fr       */
+/*   Created: 2025/07/06 15:37:24 by enrgil-p          #+#    #+#             */
+/*   Updated: 2025/07/06 16:27:56 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-int	main(int arg_counter, char **arg_vector)
+int	map_format(char *map_file, int *error_flag)
 {
-	int	error_flag;
+	char	*dot_position;
 
-	error_flag = 0;
-	if (arg_counter == 2 || !map_format(arg_vector[1], &error_flag))
+	if	(!ft_strnstr(map_file, ".ber", 4))
 	{
-		//Parse
-		//Create and manage window
-		return (0);
+		dot_position = ft_strchr(map_file, '.');
+		if (dot_position && ft_strnstr(dot_position, ".ber", 4)
+			&& dot_position[4] == '\0')
+			return (1);
 	}
-	ft_putstr_fd("Error\n", 2);
-	//Create a function to send correct message to putendl_error()
-	ft_putendl_error("Expected: ./so_long <Name-of-map-file>.ber");
-	return (1);
+	*error_flag = 1;
+	return (0);
 }

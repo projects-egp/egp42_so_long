@@ -6,13 +6,13 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:42:36 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/06 15:28:02 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/06 20:02:41 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-int	/*main*/(void)
+int	main(void)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -37,13 +37,13 @@ int	/*main*/(void)
 		free(mlx_ptr);//Do I need this?
 		return (1);
 	}
-	x = 20;
-	y = 30;
-	img_ptr = mlx_xpm_file_to_image(mlx_ptr, "./assets/Wario.xpm", &x, &y);
+	x = 0;
+	y = 0;
+	img_ptr = mlx_xpm_file_to_image(mlx_ptr, "./textures/Piloto.xpm", &x, &y);
 	while (x < 1080)
 	{
 		mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, x, y);
-		x += 80;
+		x += 40;
 	}
 //	img.img = mlx_new_image(mlx_ptr, WIN_SIZE_X, WIN_SIZE_Y);
 //	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, 
