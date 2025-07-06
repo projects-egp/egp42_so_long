@@ -6,13 +6,13 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:42:36 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/03 20:02:51 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:28:02 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-int	main(void)
+int	/*main*/(void)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
