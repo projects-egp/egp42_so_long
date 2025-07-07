@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 16:31:22 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 16:54:21 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef DEFINITIONS_H
@@ -14,7 +14,7 @@
 
 # include "general.h"
 
-#define EXPECTED_FORMAT "<Name-of-map-file>.ber"
+#define EXPECTED_FORMAT "maps/<name-of-map-file>.ber"
 
 typedef	struct s_map
 {
