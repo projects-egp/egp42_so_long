@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:14:00 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/04/25 18:14:15 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 16:03:02 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	const char* src = "Hello World, how are you?";
-    const char* searched = "ld";
-    char*   result;
-	char*	myresult;
-
-    printf("%s\n\n", src);
-    result = strnstr(src, searched, 15);
-    myresult = ft_strnstr(src, searched, 15);
-    printf("Result is: %s\nMy result is: %s\n", result, myresult);
-    return (0);
-}*/		
