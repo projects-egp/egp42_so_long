@@ -6,12 +6,12 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/06 20:41:23 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/07 18:37:20 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SOURCES =	main.c map_format.c\
+SOURCES =	main.c map_format.c \
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -33,14 +33,15 @@ RM = rm -f
 all: $(LIBFT) $(MLX) $(NAME)
 
 $(LIBFT):
+	$(info Compiling Libft...)
 	@make -s -C $(LIBFT_DIR)
-	$(info CREATED $(LIBFT))
 
 $(MLX):
-	@make -s -C $(MLX_DIR)
 	$(info CREATED $(MLX))
+	@make -s -C $(MLX_DIR)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(MLX) $(OBJS)
+	
 	$(CC) $(CFLAGS) $(SOURCES) $(LIBS_FLAGS) -o $(NAME)
 	$(info CREATED $(NAME))
 
@@ -57,8 +58,8 @@ compclean: all clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@make -s -C $(LIBFT_DIR) fclean
-	@make -s -C $(MLX_DIR) clean
+	@make -C $(LIBFT_DIR) fclean
+	@make -C $(MLX_DIR) clean
 	$(info REMOVED $(NAME), $(MLX) AND -IN CASE THESE EXISTED YET- OBJECTS)
 
 re: fclean all
