@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 20:49:05 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:57:36 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_error(t_map *map_data)
 {
+	ft_printf("Error is %d\n", map_data->error_flag);//debug
 	if (map_data->error_flag == 1)
 		ft_putendl_error("Error\nFail opening file");
 	if (map_data->error_flag == 2)

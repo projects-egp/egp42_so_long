@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 20:51:42 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 22:59:34 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 static void	top_bottom_check(char *line, t_map *map_data)
 {
 	int		i;
-	static	int	bottom_flag;
 
 	i = 0;
-	if (!bottom_flag && !line)
+	if (!map_data->bottom_flag && !line)
 		map_data->error_flag = 8;
-	while (!map_data->flag_error && line[i] != '\0')
+	while (!map_data->error_flag && line[i] != '\0')
 	{
-		if (line[i] == '\n' && !bottom_flag)
+		if (line[i] == '\n' && !map_data->bottom_flag)
 			map_data->width = i;
-		else if (line[i] != '1' && line[i] != '\n')
+		else if (line[i] != '1')
 			map_data->error_flag = 7;
 		i++;
 	}
-	if (!map_data->error_flag && bottom_flag && map_data->width != i)
+	ft_printf("widdth is %d, i is %d\n", map_data->width, i);
+	if (!map_data->error_flag
+		&& map_data->bottom_flag && map_data->width != i)
 		map_data->error_flag = 5;
-	bottom_flag = 1;
+	map_data->bottom_flag++;
 }
 
 static void	increase_pce_flags(char special_char, t_map *map_data)
@@ -71,7 +72,7 @@ static void	middle_line_check(char *line, t_map *map_data)
 	{
 		if (ft_strchr("PCE", line[i]))
 		       	increase_pce_flags(line[i], map_data);
-		else if (!ft_strchr("01", line[i]))
+		else if (!ft_strchr("01\n", line[i]))
 			map_data->error_flag = 7;
 		i++;
 	}
@@ -93,26 +94,30 @@ static int	map_is_correct(t_map *map_data)
 	return (0);
 }
 
-static void	read_and_check_map(char *map_pathname, t_map *map_data)
+void	read_and_check_map(char *map_pathname, t_map *map_data)
 {
 	int	check_fd;
 	char	*current_line;
-	char	*checked_line;
 
 	current_line = "";
 	check_fd = open(map_pathname, O_RDONLY);
 	if (check_fd == -1)
 		map_data->error_flag = 1;
-	while (current_line != NULL && !map_data->error_flag)
+	while (map_data->bottom_flag <= 1 && !map_data->error_flag)
 	{
 		current_line = get_next_line(check_fd);
-		if (!map_data->height || !ft_strrchr(current_line, '\n'))
+		ft_printf("%s", current_line);//debug
+		ft_printf("Width is %d\n", map_data->width);//debug
+		if (!map_data->width || !ft_strrchr(current_line, '\n'))/*This
+		is failing because final line soometimes have \n.
+		So, check a new way to see if a line is the end*/
 			top_bottom_check(current_line, map_data);
 		else
 			middle_line_check(current_line, map_data);
 		free(current_line);
 		map_data->height++;
 	}
+	ft_printf("p_flag is %d\n", map_data->error_flag);//debug
 	if (map_data->error_flag || !map_is_correct(map_data))
 		print_error(map_data);
 	close(check_fd);

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 16:37:09 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:28:47 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@
 # include "libft/complete_libft.h"
 # include "definitions.h"
 
-void	map_format(char *map_file);
+void	map_format(char *map_path);
+void	open_map(char *map_pathname, t_map *map_data);
+void	read_and_check_map(char *map_pathname, t_map *map_data);
+void	print_error(t_map *map_data);
 
 #define WIN_SIZE_X	976
 #define WIN_SIZE_Y	576
