@@ -6,11 +6,15 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 12:17:36 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/07 16:31:22 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef DEFINITIONS_H
+# define DEFINITIONS_H
 
-#include "general.h"
+# include "general.h"
+
+#define EXPECTED_FORMAT "<Name-of-map-file>.ber"
 
 typedef	struct s_map
 {
@@ -22,3 +26,5 @@ typedef	struct s_map
 	int	e_flag;
 	int	error_flag;//I need to think better this one
 }	t_map;
+
+#endif
