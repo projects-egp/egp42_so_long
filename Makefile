@@ -6,12 +6,13 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/07 19:56:05 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/07 21:59:44 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 SOURCES =	main.c map_format.c open_map.c read_and_check_map.c\
+		manage_error.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -40,7 +41,7 @@ $(MLX):
 	$(info CREATED $(MLX))
 	@make -s -C $(MLX_DIR)
 
-$(NAME): $(LIBFT) $(MLX) $(OBJS)
+$(NAME): $(LIBFT) $(MLX) $(OBJECTS)
 	
 	$(CC) $(CFLAGS) $(SOURCES) $(LIBS_FLAGS) -o $(NAME)
 	$(info CREATED $(NAME))
