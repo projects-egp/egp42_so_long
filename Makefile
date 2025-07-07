@@ -6,12 +6,12 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/07 18:37:20 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/07 19:56:05 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SOURCES =	main.c map_format.c \
+SOURCES =	main.c map_format.c open_map.c read_and_check_map.c\
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
