@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/08 22:52:56 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/08 23:02:57 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ void	open_map(char *map_pathname, t_map *map_data)
 	check_line_by_line(fd_map, map_data, &lines);
 	//store in map_data->map, free nodes from lines
 	//flodfill
+	close(fd_map);
 }
