@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/09 20:09:18 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/09 21:25:03 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ fsanitize: $(NAME)
 	$(info CREATED $(NAME) with fsanitize)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJECTS)
 	@make -s -C $(LIBFT_DIR) clean
 	$(info REMOVED OBJECTS AND LIBFT/OBJECTS)
 
