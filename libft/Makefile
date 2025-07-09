@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 17:15:51 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/03/28 18:43:28 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/09 19:59:02 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,13 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
        get_next_line.c get_next_line_utils.c\
        ft_printf.c manage_chars.c manage_number.c\
        ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c\
-       ft_lstsize.c\
+       ft_lstsize.c free_first_node.c free_full_list.c\
        ft_putstr.c ft_putendl.c ft_putendl_error.c ft_putnbr.c\
-       ft_isspace.c ft_issign.c\
+       ft_isspace.c ft_issign.c ft_is_lower.c ft_is_upper.c\
        ft_strchr_digit.c\
        ft_atol.c ft_atoi_protected.c\
        ft_swap.c\
+       free_strings_array.c\
 #
 #				Is *.h needed here?
 #				No, because a make clean would destroy it
