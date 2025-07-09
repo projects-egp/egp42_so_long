@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 17:14:47 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:07:35 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	main(int arg_counter, char **arg_vector)
 		map_format(arg_vector[1]);
 		if (!open_map(arg_vector[1], &map))
 		{
-			ft_putendl_error("Error\nFail");
+			ft_putstr_fd("Error\nFail trying to open ", 2);
+			ft_putendl_error(arg_vector[1]);
 			return (1);
 		}
-		//Here I parse
 		//Create and manage window
 		return (0);
 	}

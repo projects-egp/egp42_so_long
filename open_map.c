@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 17:10:34 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:11:54 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,13 @@ int	open_map(char *map_pathname, t_map *map_data)
 	if (fd_map == -1)
 		return (0);
 	check_line_by_line(fd_map, map_data, &lines);
-	close(fd_map);/*Did i finished with fd? If that's the case, close here
-		    in case an error happen you have fd closed before*/
+	close(fd_map);
 	store_map(map_data, &lines);
 	flood_fill(map_data, map_data->p_position[0], map_data->p_position[1]);
 	//if (ssome mayus)
-		map_data->error_flag = 8; 
-	//In case of wrong result of flodill, free map_data->map
+	{
+		map_data->error_flag = 8;
+		print_error(map_data);
+	}
+	return (1);
 }
