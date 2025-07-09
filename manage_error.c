@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/08 21:19:43 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:37:52 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	print_error(t_map *map_data)
 {
-	/*If map_data->map, free the array like a split. Add to libft that
-	 * as free_char_matrix*/
-	//Or free char before you enter print
-	ft_printf("Error is %d\n", map_data->error_flag);//debug
+//If it iss needed, change name to parse_error()
+	if (map_data->map)
+		free_strings_array(map_data->map);
 	if (map_data->error_flag == 1)
 		ft_putendl_error("Error\nFail opening file");
 	if (map_data->error_flag == 2)
@@ -34,5 +33,7 @@ void	print_error(t_map *map_data)
 		ft_putendl_error("Error\nChar forbidden. Allowed: 0 1 P C E");
 	if (map_data->error_flag == 8)
 		ft_putendl_error("Error\nFile empty");
+	if (map_data->error_flag == 9)
+		ft_putendl_error("Error\nMap invalid, can't reach all C and E");
 	exit(EXIT_FAILURE);
 }
