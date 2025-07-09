@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/09 21:25:03 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/09 22:34:31 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ all: $(NAME)
 
 $(LIBFT):
 	$(info Compiling Libft...)
-	@make -s -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 $(MLX):
 	$(info CREATED $(MLX))
