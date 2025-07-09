@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/09 19:12:57 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/09 20:09:18 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 MLX_DIR = ./mlx_linux
 MLX = $(MLX_DIR)/libmlx.a
 
-OBJECTS = $(SRCS:c=.o)
+OBJECTS = $(SOURCES:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -g3
 SANIT_FLAG = -fsanitize=address
@@ -42,11 +42,11 @@ $(MLX):
 	@make -s -C $(MLX_DIR)
 
 $(NAME): $(LIBFT) $(MLX) $(OBJECTS)
-	$(CC) $(CFLAGS) $(SOURCES) $(LIBS_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBS_FLAGS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 fsanitize: $(NAME)
-	$(CC) $(CFLAGS) $(SANIT_FLAG) $(SOURCES) $(LIBS_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SANIT_FLAG) $(OBJECTS) $(LIBS_FLAGS) -o $(NAME)
 	$(info CREATED $(NAME) with fsanitize)
 
 clean:

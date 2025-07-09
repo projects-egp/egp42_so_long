@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 19:18:20 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:48:55 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	initialize_map_data(t_map *map_data)
 	map_data->error_flag = 0;
 }
 
-static void	store_map(t_map *data, t_list *lines)
+static void	store_map(t_map *data, t_list **lines)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ static void	store_map(t_map *data, t_list *lines)
 	}
 	while (i > 0)
 	{
-		data->map[i] = ft_substr(lines->content, 0, data->width);
+		data->map[i] = ft_substr((*lines)->content, 0, data->width);
 		free_first_node(lines);
 		i--;
 	}
@@ -55,10 +55,10 @@ static void	flood_fill(t_map *data, int x, int y)
 			return ;
 		if (!ft_is_lower(data->map[y][x]))
 			data->map[y][x] = 'f';
-		flood_fill(map_data, x, y - 1);
-		flood_fill(map_data, x + 1, y);
-		flood_fill(map_data, x, y + 1);
-		flood_fill(map_data, x - 1, y);
+		flood_fill(data, x, y - 1);
+		flood_fill(data, x + 1, y);
+		flood_fill(data, x, y + 1);
+		flood_fill(data, x - 1, y);
 	}
 }
 
@@ -72,11 +72,11 @@ static int	can_reach_special_cells(t_map *data)
 	while (data->map[line])
 	{
 		while (data->map[line][i]
-			&& !ft_strchar("PCE", data->map[line][i]))
+			&& !ft_strchr("PCE", data->map[line][i]))
 			i++;
 		if (data->map[line][i] != '\0')
 		{
-			map_data->error_flag = 8;
+			data->error_flag = 8;
 			return (0);
 		}
 		i = 0;
@@ -87,7 +87,7 @@ static int	can_reach_special_cells(t_map *data)
 
 int	open_map(char *map_pathname, t_map *map_data)
 {
-	t_list	lines;
+	t_list	*lines;
 	int		fd_map;
 
 	lines = NULL;
@@ -99,7 +99,7 @@ int	open_map(char *map_pathname, t_map *map_data)
 	close(fd_map);
 	store_map(map_data, &lines);
 	flood_fill(map_data, map_data->p_position[0], map_data->p_position[1]);
-	if (!can_reach_special_cells(map_data->map))
+	if (!can_reach_special_cells(map_data))
 		print_error(map_data);
 	return (1);
 }
