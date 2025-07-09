@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 21:20:41 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 22:09:14 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,7 @@ static void	check_forbidden_chars(char *line, t_map *map_data)
 	line_len = check_width(line, map_data);
 	if (!map_data->error_flag
 		&& (line[0] != '1' || line[line_len - 1] != '1'))
-	{
-		ft_printf("Error: %d\n", map_data->error_flag);//debug
-		ft_printf("First char: %c\n", line[line_len - 1]);//debug
-		ft_printf("Last char: %c\n", line[line_len - 1]);//debug
-		ft_printf("Len: %d\n", line_len);//debug
-		ft_printf("Line: %s\n", line);//debug
 		map_data->error_flag = 5;
-	}
 	while (line[i] && !map_data->error_flag)
 	{
 		if (ft_strchr("PCE", line[i]))
@@ -82,10 +75,7 @@ static int	map_is_correct(t_map *map_data, t_list **lines_list)
 	last_node = ft_lstlast(*lines_list);
 	if (!wall_check((*lines_list)->content)
 		|| !wall_check(last_node->content))
-	{
-			ft_printf("Hello\n");//debig
 		map_data->error_flag = 5;
-	}
 	if (map_data->p_flag != 1)
 		map_data->error_flag = 1;
 	else if (map_data->e_flag != 1)
@@ -104,19 +94,21 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 {
 	char	*read_line;
 
-	read_line = "";
-	while (read_line && !map_data->error_flag)
+	read_line = " ";
+	while (read_line[0] != '\0' && !map_data->error_flag)
 	{
 		read_line = get_next_line(fd);
 		if (!read_line && !lines)
 			map_data->error_flag = 7;
-		check_forbidden_chars(read_line, map_data);
-		if (!map_data->error_flag)
+		if (read_line && read_line[0] != '\0')
+			check_forbidden_chars(read_line, map_data);
+		if (!map_data->error_flag && read_line[0] != 0)
 		{
 			add_new_line(read_line, lines, map_data);
 			map_data->height++;
 		}
-		free(read_line);
+		if (read_line[0] != 0)
+			free(read_line);
 	}
 	if (map_data->error_flag || !map_is_correct(map_data, lines))
 	{

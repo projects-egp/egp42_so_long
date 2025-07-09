@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 00:07:45 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/01/26 00:17:59 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 22:34:52 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
+	ft_printf("In add, %s", (*lst)->content);//debug
+	ft_printf("In add, %s", (*lst)->next->content);//debug
 }

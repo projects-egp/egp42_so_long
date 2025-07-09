@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:13:02 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 20:37:46 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 22:25:11 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int	check_width(char *line, t_map *data)
 	if (!data->width)
 		data->width = len;
 	else if (data->width != len || data->width <= 2)
+	{
+	ft_printf("wid is %d, len %d\n", data->width, len);//debug
+		ft_printf("check_width\n");//debug
 		data->error_flag = 4;
+	}
 	return (len);
 }
 
@@ -39,4 +43,7 @@ void	add_new_line(char *read_line, t_list **lines_list, t_map *data)
 		return ;
 	}
 	ft_lstadd_front(lines_list, new);
+	ft_printf("Head %s\n", (*lines_list)->content);//debug
+	if ((*lines_list)->next)
+		ft_printf("Next %s\n", (*lines_list)->next->content);//debug
 }

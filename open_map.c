@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 19:48:55 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 22:33:21 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,19 @@ static void	store_map(t_map *data, t_list **lines)
 
 	i = data->height;
 	data->map = ft_calloc(data->height + 1, sizeof(char *));
+	ft_printf("%p\n", data->map);//debug
 	if (!data->map)
 	{
+		ft_printf("%p\n", data->map);//debug
 		free_full_list(lines);
 		ft_putendl_error("Error\nMalloc fail");
 		exit(EXIT_FAILURE);
 	}
 	while (i > 0)
 	{
-		data->map[i] = ft_substr((*lines)->content, 0, data->width);
+		ft_printf("%s\n", (*lines)->content);//debug
+		data->map[i] = ft_substr((*lines)->content, 0, data->width - 1);
+		ft_printf("%s\n", data->map[i]);//debug
 		free_first_node(lines);
 		i--;
 	}
