@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/08 23:02:57 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:33:36 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,31 @@ static void	initialize_map_data(t_map *map_data)
 	map_data->error_flag = 0;
 }
 
-//Open map_pathname twice: once for check, next to flodfill and create window
+static void	store_map(t_map *data, t_list *lines)
+{
+	int	i;
+
+	i = data->height;
+	data->map = ft_calloc(data->height + 1, sizeof(char *));
+	if (!data->map)
+	{
+		free_full_list(lines);
+		ft_putendl_error("Error\nMalloc fail");
+		exit(EXIT_FAILURE);/*If I can't close fd yet, return 0
+					and exit in open_map()*/
+	}
+	while (i > 0)
+	{
+		memcpy(data->map[i], lines->content, data->width);
+		free_first_node(lines);
+		i--
+	}
+}
+
+static int	flodfill(t_map *data)
+{
+}
+
 void	open_map(char *map_pathname, t_map *map_data)
 {
 	t_list	lines;
@@ -35,7 +59,9 @@ void	open_map(char *map_pathname, t_map *map_data)
 	if (fd_map == -1)
 		map_data->error_flag = 1;
 	check_line_by_line(fd_map, map_data, &lines);
-	//store in map_data->map, free nodes from lines
+	close(fd_map);/*Did i finished with fd? If that's the case, close here
+		    in case an error happen you have fd closed before*/
+	store_map(map_data, &lines);
 	//flodfill
-	close(fd_map);
+	//In case of wrong result of flodill, free map_data->map
 }
