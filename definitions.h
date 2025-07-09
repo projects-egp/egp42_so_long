@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/08 20:53:33 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:09:15 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_map
 	char	**map;
 	int		height;
 	int		width;
+	int		*p_position[2];
 	int		p_flag;
 	int		c_flag;
 	int		e_flag;
