@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/07 19:41:50 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:14:47 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ int	main(int arg_counter, char **arg_vector)
 	if (arg_counter == 2)
 	{
 		map_format(arg_vector[1]);
-		open_map(arg_vector[1], &map);//Here I parse
+		if (!open_map(arg_vector[1], &map))
+		{
+			ft_putendl_error("Error\nFail");
+			return (1);
+		}
+		//Here I parse
 		//Create and manage window
 		return (0);
 	}
