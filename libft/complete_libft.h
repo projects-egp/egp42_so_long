@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 04:56:47 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 13:18:23 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:55:28 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 /*				ctype.h functions			*/
 int		ft_isspace(int c);
 int		ft_issign(int c);
+int		ft_is_upper(int c);
+int		ft_is_lower(int c);
 /*				string.h functions			*/
 char	*ft_strchr_digit(const char *s);
 /*				piscine functions			*/
