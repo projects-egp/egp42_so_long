@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 18:11:54 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:18:20 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ static void	store_map(t_map *data, t_list *lines)
 	{
 		free_full_list(lines);
 		ft_putendl_error("Error\nMalloc fail");
-		exit(EXIT_FAILURE);/*If I can't close fd yet, return 0
-					and exit in open_map()*/
+		exit(EXIT_FAILURE);
 	}
 	while (i > 0)
 	{
-		memcpy(data->map[i], lines->content, data->width);
+		data->map[i] = ft_substr(lines->content, 0, data->width);
 		free_first_node(lines);
 		i--;
 	}
@@ -63,11 +62,34 @@ static void	flood_fill(t_map *data, int x, int y)
 	}
 }
 
+static int	can_reach_special_cells(t_map *data)
+{
+	int	i;
+	int	line;
+
+	i = 0;
+	line = 0;
+	while (data->map[line])
+	{
+		while (data->map[line][i]
+			&& !ft_strchar("PCE", data->map[line][i]))
+			i++;
+		if (data->map[line][i] != '\0')
+		{
+			map_data->error_flag = 8;
+			return (0);
+		}
+		i = 0;
+		line++;
+	}
+	return (1);
+}
+
 int	open_map(char *map_pathname, t_map *map_data)
 {
 	t_list	lines;
 	int		fd_map;
-	
+
 	lines = NULL;
 	initialize_map_data(map_data);
 	fd_map = open(map_pathname, O_RDONLY);
@@ -77,10 +99,7 @@ int	open_map(char *map_pathname, t_map *map_data)
 	close(fd_map);
 	store_map(map_data, &lines);
 	flood_fill(map_data, map_data->p_position[0], map_data->p_position[1]);
-	//if (ssome mayus)
-	{
-		map_data->error_flag = 8;
+	if (!can_reach_special_cells(map_data->map))
 		print_error(map_data);
-	}
 	return (1);
 }

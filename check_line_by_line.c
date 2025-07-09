@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 18:17:00 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:19:23 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	check_forbidden_chars(char *line, t_map *map_data)
 	while (line[i] && !map_data->error_flag)
 	{
 		if (ft_strchr("PCE", line[i]))
-		       	increase_pce_flags(line[i], i, map_data);
+			increase_pce_flags(line[i], i, map_data);
 		else if (!ft_strchr("01\n", line[i]))
 			map_data->error_flag = 6;
 		i++;
@@ -68,7 +68,7 @@ static void	check_forbidden_chars(char *line, t_map *map_data)
 static int	map_is_correct(t_map *map_data, t_list *lines_list)
 {
 	t_list	*last_node;
-	int	map_size;
+	int		map_size;
 
 	map_size = map_data->width * map_data->height;
 	last_node = ft_lstlast(lines_list);
