@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/08 22:57:46 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:28:03 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,8 @@ static int	map_is_correct(t_map *map_data, t_list *lines_list)
 	else if (map_data->width <= 2 || map_data->height <= 2
 		|| (map_data->width * map_data->height) < 15)//Add max size
 		map_data->error_flag = 5;
-	else if (!map_data->error_flag)
+	if (!map_data->error_flag)
 		return (1);
-	//Free lines_list one by one
 	return (0);
 }
 
@@ -107,11 +106,15 @@ void	check_line_by_line(int fd, t_map *map_data, t_list *lines)
 		if (!map_data->error_flag)
 		{
 			new_line = ft_lstnew(read_line);//Check how this works
-			ft_lstadd_front(&lines, new_line);
+/*Store this in another function*/			ft_lstadd_front(&lines, new_line);//Should free new?
 			map_data->height++;
 		}//If I can't do previous, free(read_line) must be done
 		free(read_line);//Can I do this after lstnew?
 	}
 	if (map_data->error_flag || !map_is_correct(map_data, lines))
+	{
+		close(fd);
+		clean_list(lines);
 		print_error(map_data);
+	}
 }
