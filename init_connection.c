@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:42:36 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/06 20:02:41 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:26:27 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	main(void)
 	for (int x = 90; x < 500; x++)
 		mlx_pixel_put(mlx_ptr, win_ptr, 0 + x, 0 + x, color_red);
 //	mlx_put_image_to_window(mlx_ptr, win_ptr, img.img, 0, 0);
+	mlx_hook(win_ptr, 2, 1L << 0, key_press, structure);
+	mlx_hook(win_ptr, 17, 1L << 17, destroy_window, structure);
 	mlx_loop(mlx_ptr);
 	mlx_destroy_window(mlx_ptr, win_ptr);
 	mlx_destroy_display(mlx_ptr);
