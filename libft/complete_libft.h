@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 04:56:47 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/03/28 18:39:35 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:18:23 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ int		ft_issign(int c);
 char	*ft_strchr_digit(const char *s);
 /*				piscine functions			*/
 void	ft_swap(int *a, int *b);
+/*				not_libc functions			*/
+void	free_strings_array(char **array);
+/*				list functions				*/
+void	free_full_list(t_list *list);
+void	free_first_node(t_list *list);
 
 #endif
