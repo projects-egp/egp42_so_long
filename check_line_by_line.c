@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 17:20:50 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:17:00 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ static void	check_forbidden_chars(char *line, t_map *map_data)
 static int	map_is_correct(t_map *map_data, t_list *lines_list)
 {
 	t_list	*last_node;
+	int	map_size;
 
+	map_size = map_data->width * map_data->height;
 	last_node = ft_lstlast(lines_list);
 	if (!wall_check(lines_list->content, map_data)
 		|| !wall_check(last_node->content, map_data))
@@ -80,7 +82,7 @@ static int	map_is_correct(t_map *map_data, t_list *lines_list)
 	else if (map_data->c_flag < 1)
 		map_data->error_flag = 3;
 	else if (map_data->width <= 2 || map_data->height <= 2
-		|| (map_data->width * map_data->height) < 15)//Add max size
+		|| map_size < MIN_MAP_SIZE || map_size > MAX_MAP_SIZE)
 		map_data->error_flag = 4;
 	if (!map_data->error_flag)
 		return (1);
@@ -90,7 +92,6 @@ static int	map_is_correct(t_map *map_data, t_list *lines_list)
 void	check_line_by_line(int fd, t_map *map_data, t_list *lines)
 {
 	char	*read_line;
-	t_list	*new_line;
 
 	read_line = "";
 	while (read_line && !map_data->error_flag)
@@ -101,10 +102,7 @@ void	check_line_by_line(int fd, t_map *map_data, t_list *lines)
 		check_forbidden_chars(read_line, map_data);
 		if (!map_data->error_flag)
 		{
-			new_line = ft_lstnew(read_line);
-			ft_lstadd_front(&lines, new_line);
-	/*Store this in another function, and free and close things properly 
- 	*in case of error*/    //Should free new if every is okay??
+			add_new_line(read_line, lines, map_data);
 			map_data->height++;
 		}
 		free(read_line);
