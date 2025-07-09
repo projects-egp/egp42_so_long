@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 04:56:47 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 15:55:28 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:24:54 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,5 @@ char	*ft_strchr_digit(const char *s);
 void	ft_swap(int *a, int *b);
 /*				not_libc functions			*/
 void	free_strings_array(char **array);
-/*				list functions				*/
-void	free_full_list(t_list *list);
-void	free_first_node(t_list *list);
 
 #endif
