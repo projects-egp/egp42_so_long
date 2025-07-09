@@ -6,11 +6,11 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:18:44 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 15:54:52 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:58:55 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "complete_libft.h"
 
 int	ft_is_upper(int c)
 {
