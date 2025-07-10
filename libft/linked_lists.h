@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:10:50 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 19:42:03 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:39:00 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ int		ft_lstsize(t_list *lst);
 /*	*	Created by me	*	*/
 void	free_full_list(t_list **list);
 void	free_first_node(t_list **list);
+//Free list when content have been malloc
+void	free_full_list_and_contents(t_list **list);
+void	free_first_node_and_content(t_list **list);
 
 #endif

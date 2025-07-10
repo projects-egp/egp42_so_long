@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   free_first_node_and_content.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
+/*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 00:07:45 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 12:48:41 by enrgil-p         ###   ########.fr       */
+/*   Created: 2025/07/09 12:47:13 by enrgil-p          #+#    #+#             */
+/*   Updated: 2025/07/10 13:19:39 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-/*First, new->next points to head of list. Then, head of list is taken by new*/
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	free_first_node_and_content(t_list **list)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	t_list	*aux;
+
+	aux = *list;
+	*list = (*list)->next;
+	free(aux->content);
+	free(aux);
 }

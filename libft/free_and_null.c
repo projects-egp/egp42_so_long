@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   free_and_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
+/*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 00:07:45 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 12:48:41 by enrgil-p         ###   ########.fr       */
+/*   Created: 2025/07/10 13:36:08 by enrgil-p          #+#    #+#             */
+/*   Updated: 2025/07/10 13:53:04 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "complete_libft.h"
 
-/*First, new->next points to head of list. Then, head of list is taken by new*/
-void	ft_lstadd_front(t_list **lst, t_list *new)
+//I don't know yet if this can put nullto every data
+void	free_string_and_null(char **heap_data)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	free(*heap_data);
+	*heap_data = NULL;
 }
