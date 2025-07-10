@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 19:40:13 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:08:57 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	open_map(char *map_pathname, t_map *map_data);
 void	check_line_by_line(int fd, t_map *map_data, t_list **lines);
 /*	*	manage_error	*	*/
 void	print_error(t_map *map_data);
+void	close_clean_and_exit_error(int fd, t_list **lines_list, t_map *data);
 /*	*	check_line_utils*	*/
 int	check_width(char *line, t_map *data);
 void	add_new_line(char *read_line, t_list **lines_list, t_map *data);

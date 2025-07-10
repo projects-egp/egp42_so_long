@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 14:56:29 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:13:19 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,12 @@ void	print_error(t_map *map_data)
 		ft_putendl_error("Error\nMap invalid, can't reach all C and E");
 	exit(EXIT_FAILURE);
 }
+
+void	close_clean_and_exit_error(int fd, t_list **lines_list, t_map *data)
+{
+	close(fd);
+	free_full_list_and_contents(lines_list);
+	print_error(data);
+}
+
+

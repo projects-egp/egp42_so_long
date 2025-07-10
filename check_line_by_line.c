@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 14:54:16 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:57:00 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ static int	wall_check(char *line)
 	i = 0;
 	while (line[i] != '\0' && line[i] != '\n')
 	{
-		ft_printf("%c char\n", line[i]);//debug
-		if (line[i] != '1'/* || line[i + 1] != '\n'*/) 
-		{
-			ft_printf("%c char\n", line[i]);//debug
+		if (line[i] != '1') 
 			return (0);
-		}
 		i++;
 	}
 	return (1);
@@ -38,7 +34,7 @@ static void	increase_pce_flags(char item, int x_pos, t_map *map_data)
 		if (map_data->p_flag > 1)
 			map_data->error_flag = WRONG_P;
 		map_data->p_position[0] = x_pos;
-		map_data->p_position[1] = map_data->height + 1;
+		map_data->p_position[1] = map_data->height;
 	}
 	if (item == 'C')
 		map_data->c_flag++;
@@ -99,7 +95,7 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 	char	*read_line;
 
 	read_line = " ";
-	while (read_line/* && read_line[0] != '\0'*/&& !map_data->error_flag)
+	while (read_line && !map_data->error_flag)
 	{
 		read_line = get_next_line(fd);
 		if (!read_line && !lines)
@@ -115,9 +111,5 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 			free_string_and_null(&read_line);
 	}
 	if (map_data->error_flag || !map_is_correct(map_data, lines))
-	{
-		close(fd);
-		free_full_list_and_contents(lines);
-		print_error(map_data);
-	}
+		close_clean_and_exit_error(fd, lines, map_data);
 }

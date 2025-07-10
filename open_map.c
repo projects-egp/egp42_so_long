@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 14:58:42 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:01:53 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	store_map(t_map *data, t_list **lines)
 {
 	int	i;
 
-	i = data->height;
+	i = data->height - 1;
 	data->map = ft_calloc(data->height + 1, sizeof(char *));
 	if (!data->map)
 	{
@@ -37,9 +37,10 @@ static void	store_map(t_map *data, t_list **lines)
 		ft_putendl_error("Error\nMalloc fail");
 		exit(EXIT_FAILURE);
 	}
-	while (i > 0)
+	while (i >= 0)
 	{
-		data->map[i] = ft_substr((*lines)->content, 0, data->width - 1);
+		data->map[i] = ft_substr((*lines)->content, 0, data->width);
+		ft_printf("Stored %s, %d position\n", data->map[i], i);//debug
 		free_first_node_and_content(lines);
 		i--;
 	}
@@ -47,14 +48,14 @@ static void	store_map(t_map *data, t_list **lines)
 
 static void	flood_fill(t_map *data, int x, int y)
 {
-	if (data->map[y][x] != '1')
+	if (data->map[y][x] != '1' && !ft_is_lower(data->map[y][x]))
 	{
 		if (ft_is_upper(data->map[y][x]))
 			data->map[y][x] += 32;
 		if (data->map[y][x] == 'e')
 			return ;
 		if (!ft_is_lower(data->map[y][x]))
-			data->map[y][x] = 'f';
+			data->map[y][x] = 'o';
 		flood_fill(data, x, y - 1);
 		flood_fill(data, x + 1, y);
 		flood_fill(data, x, y + 1);
@@ -99,7 +100,9 @@ int	open_map(char *map_pathname, t_map *map_data)
 	close(fd_map);
 	store_map(map_data, &lines);
 	flood_fill(map_data, map_data->p_position[0], map_data->p_position[1]);
+	ft_printf("Middle line after floodfill:\n\t%s\n", map_data->map[1]);
 	if (!can_reach_special_cells(map_data))
 		print_error(map_data);
+	ft_printf("Alright\n");//debug
 	return (1);
 }
