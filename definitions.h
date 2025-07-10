@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 19:27:32 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:44:03 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,12 @@ typedef struct s_map
 	int		e_flag;
 	int		error_flag;
 }	t_map;
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+}	t_mlx;
 
 #endif
