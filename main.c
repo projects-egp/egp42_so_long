@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 18:07:35 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:33:51 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int arg_counter, char **arg_vector)
 			ft_putendl_error(arg_vector[1]);
 			return (1);
 		}
+//		execute
+		free_strings_array(map.map);
 		//Create and manage window
 		return (0);
 	}
