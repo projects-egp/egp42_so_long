@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 13:27:17 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:58:42 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	can_reach_special_cells(t_map *data)
 			i++;
 		if (data->map[line][i] != '\0')
 		{
-			data->error_flag = 8;
+			data->error_flag = CANNOT_WIN_GAME;
 			return (0);
 		}
 		i = 0;

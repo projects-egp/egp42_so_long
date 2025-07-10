@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 14:03:19 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:54:16 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	increase_pce_flags(char item, int x_pos, t_map *map_data)
 	{
 		map_data->p_flag++;
 		if (map_data->p_flag > 1)
-			map_data->error_flag = 1;
+			map_data->error_flag = WRONG_P;
 		map_data->p_position[0] = x_pos;
 		map_data->p_position[1] = map_data->height + 1;
 	}
@@ -46,7 +46,7 @@ static void	increase_pce_flags(char item, int x_pos, t_map *map_data)
 	{
 		map_data->e_flag++;
 		if (map_data->p_flag > 1)
-			map_data->error_flag = 2;
+			map_data->error_flag = WRONG_E;
 	}
 }
 
@@ -59,7 +59,7 @@ static void	check_forbidden_chars(char *line, t_map *map_data)
 	line_len = check_width(line, map_data);
 	if (!map_data->error_flag
 		&& (line[0] != '1' || line[line_len - 1] != '1'))
-		map_data->error_flag = 5;
+		map_data->error_flag = WRONG_WALL;
 	while (line[i] && !map_data->error_flag)
 	{
 		if (ft_strchr("PCE", line[i]))
@@ -77,21 +77,18 @@ static int	map_is_correct(t_map *map_data, t_list **lines_list)
 
 	map_size = map_data->width * map_data->height;
 	last_node = ft_lstlast(*lines_list);
-	if (!wall_check((*lines_list)->content)
-		|| !wall_check(last_node->content))
-	{
-		ft_printf("Here I am\n");//debug
-		map_data->error_flag = 5;
-	}
-	if (map_data->p_flag != 1)
-		map_data->error_flag = 1;
-	else if (map_data->e_flag != 1)
-		map_data->error_flag = 2;
-	else if (map_data->c_flag < 1)
-		map_data->error_flag = 3;
-	else if (map_data->width <= 2 || map_data->height <= 2
+	if (map_data->width <= 2 || map_data->height <= 2
 		|| map_size < MIN_MAP_SIZE || map_size > MAX_MAP_SIZE)
-		map_data->error_flag = 4;
+		map_data->error_flag = WRONG_SIZE;
+	else if (!wall_check((*lines_list)->content)
+		|| !wall_check(last_node->content))
+		map_data->error_flag = WRONG_WALL;
+	else if (map_data->p_flag != 1)
+		map_data->error_flag = WRONG_P;
+	else if (map_data->e_flag != 1)
+		map_data->error_flag = WRONG_E;
+	else if (map_data->c_flag < 1)
+		map_data->error_flag = WRONG_C;
 	if (!map_data->error_flag)
 		return (1);
 	return (0);
@@ -106,7 +103,7 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 	{
 		read_line = get_next_line(fd);
 		if (!read_line && !lines)
-			map_data->error_flag = 7;
+			map_data->error_flag = EMPTY_FILE;
 		if (read_line && read_line[0] != '\0')
 			check_forbidden_chars(read_line, map_data);
 		if (!map_data->error_flag && read_line[0] != 0)

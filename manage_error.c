@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 18:26:23 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:56:29 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ void	print_error(t_map *map_data)
 		ft_putendl_error("Error\nFile empty");
 	if (map_data->error_flag == 8)
 		ft_putendl_error("Error\nMap invalid, can't reach all C and E");
-	if (map_data->error_flag == 9)
-		ft_putendl_error("Error\nMa invalid, can't reach all C and E");
 	exit(EXIT_FAILURE);
 }

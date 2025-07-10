@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/09 19:48:04 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:58:50 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # define EXPECTED_FORMAT "maps/<name-of-map-file>.ber"
 # define MIN_MAP_SIZE 15// == (3 * 5)
 # define MAX_MAP_SIZE 3080// == (77 * 40)
+/*	* ERROR_FLAG values 	*	*/
+# define WRONG_P 1
+# define WRONG_E 2
+# define WRONG_C 3
+# define WRONG_SIZE 4
+# define WRONG_WALL 5
+# define WRONG_CHAR 6
+# define EMPTY_FILE 7
+# define CANNOT_WIN_GAME 8
 
 typedef struct s_map
 {
