@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 19:44:03 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:15:59 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "general.h"
 
 # define EXPECTED_FORMAT "maps/<name-of-map-file>.ber"
+# define NAME "FLY AWAY, HILARIO!"
 //
 /*	* SIZES values 	*	*/
 # define MIN_MAP_SIZE 15// == (3 * 5)
