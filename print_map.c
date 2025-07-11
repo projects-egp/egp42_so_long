@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:53:41 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 18:30:51 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:52:06 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	link_images(t_mlx *mlx_data)
 		PLANE_REPAIRED, &picture_size, &picture_size);
 	mlx_data->img_tree = mlx_xpm_file_to_image(mlx_data->mlx_ptr,
 		TREE, &picture_size, &picture_size);
-	//What happen in case of error?
+	return(/*check_link_error(mlx_data)*/);
 }
 
 static void	print_tile(t_mlx *mlx, void *image, int x, int y)
@@ -71,14 +71,17 @@ static void	choose_tile_to_print(t_mlx *mlx, char **map, int x, int y)
 		print_tile(mlx, mlx->img_pilot_right, x, y);
 }
 
-void	print_map(t_map *map_data, t_mlx *mlx_data)
+int	print_map(t_map *map_data, t_mlx *mlx_data)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	link_images(mlx_data);//In case of error, clean mlx_data and map_data
+	if (!link_images(mlx_data))	
+		//Or just return void and free and exit here, as you thought
+		return (/*0, and free things in connect_x_window*/);
+	//In case of error, clean mlx_data and map_data
 	//Then, read map_data->map and print following chars
 	while (y < map_data->height)
 	{
@@ -90,4 +93,5 @@ void	print_map(t_map *map_data, t_mlx *mlx_data)
 		y++;
 		x = 0;
 	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:04:51 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:53:35 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static void	connect_x_window(t_map *map_data, t_mlx *mlx_data)
 	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, detroy, structure);
 	mlx_loop(mlx_data->mlx_ptr);//This go down
 	/*	Do this in destroy hook *	*/
+	/*Delete below here*/
 	mlx_destroy_window(mlx_data->mlx_ptr, mlx_data->win_ptr);
 	mlx_destroy_display(mlx_data->mlx_ptr);
 				//Also, I have to free win_ptr?
