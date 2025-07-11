@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:21:37 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 01:34:51 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define TREE "./textures/tree.xpm"
 //
 /*	*    TEXTURES PATHS 	*	*/
-# define UP 119
+# define UP 119 
 # define RIGHT 100
 # define DOWN 115
 # define LEFT 97

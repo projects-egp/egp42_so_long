@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:00:04 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:46:19 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 01:46:04 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	print_moves(int moves)
 	}
 }
 
-void	special_event(t_map *data, char target)
+void	special_event(t_mlx *mlx, t_map *data, char target)
 {
 	int	x_exit;
 	int	y_exit;
 
 	if (target == 'c')
-		data->c_flags -= 1;	
-	if (data->c_flags == 0);
+		data->c_flag -= 1;	
+	if (data->c_flag == 0)
 	{
 		x_exit = data->e_position[0];
 		y_exit = data->e_position[1];
 		data->map[y_exit][x_exit] = 'f';
-		choose_tile_to_print()
+		choose_tile_to_print(mlx, data->map, x_exit, y_exit);
 	}
-	else if (target == 'f')
+	if (target == 'f')
 	{
 		//Hey, buddy, don't forget this
 		ft_putendl("FINISHED!! HERE WE GOOOO!!!");
@@ -63,19 +63,18 @@ void	rotate_player(int key, int x, int y, t_map *player)
 		player->map[y][x] = 'l';
 }
 
-char	set_target(int key, int x, int y, char **map)
+char	set_target(int key, int x, int y, t_map *data)
 {
 	char	target;
 
-	target = NULL;
 	if (key == UP)
-		target = map[y - 1][x];
+		target = data->map[y - 1][x];
 	if (key == RIGHT)
-		target = map[y][x + 1];
+		target = data->map[y][x + 1];
 	if (key == DOWN)
-		target = map[y + 1][x];
+		target = data->map[y + 1][x];
 	if (key == LEFT)
-		target = map[y][x - 1];
+		target = data->map[y][x - 1];
 	return (target);
 }
 
@@ -84,21 +83,21 @@ void	execute_move(int key, int x, int y, t_map *data)
 	if (key == UP)
 	{
 		data->p_position[1] -= 1;
-		rotate_player(key, x, (y - 1), data->map);
+		rotate_player(key, x, (y - 1), data);
 	}
 	if (key == RIGHT)
 	{
 		data->p_position[0] += 1;
-		rotate_player(key, (x + 1), y, data->map);
+		rotate_player(key, (x + 1), y, data);
 	}
 	if (key == DOWN)
 	{
 		data->p_position[1] += 1;
-		rotate_player(key, x, (y + 1), data->map);
+		rotate_player(key, x, (y + 1), data);
 	}
 	if (key == LEFT)
 	{
 		data->p_position[0] -= 1;
-		rotate_player(key, (x - 1), y, data->map);
+		rotate_player(key, (x - 1), y, data);
 	}
 }
