@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 20:15:59 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:33:04 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "general.h"
 
 # define EXPECTED_FORMAT "maps/<name-of-map-file>.ber"
-# define NAME "FLY AWAY, HILARIO!"
+# define GAME_NAME "FLY AWAY, HILARIO!"
 //
 /*	* SIZES values 	*	*/
 # define MIN_MAP_SIZE 15// == (3 * 5)
@@ -60,7 +60,16 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_ptr;
+	void	*img_grass;
+	void	*img_item;
+	void	*img_pilot_down;
+	void	*img_pilot_left;
+	void	*img_pilot_right;
+	void	*img_pilot_up;
+	void	*img_plane_repaired;
+	void	*img_plane;
+	void	*img_tree;
+	int		moves;
 }	t_mlx;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 20:52:55 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:35:23 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@ static void	initialize_mlx_data(t_mlx *mlx_data)
 {
 	mlx_data->mlx_ptr = NULL;
 	mlx_data->win_ptr = NULL;
-	mlx_data->img_ptr = NULL;
+	mlx_data->img_grass = NULL;
+	mlx_data->img_item = NULL;
+	mlx_data->img_pilot_down = NULL;
+	mlx_data->img_pilot_left = NULL;
+	mlx_data->img_pilot_right = NULL;
+	mlx_data->img_pilot_up = NULL;
+	mlx_data->img_plane_repaired = NULL;
+	mlx_data->img_plane = NULL;
+	mlx_data->img_tree = NULL;
+	mlx_data->moves = 0;
 }
 
 static void	connect_x_window(t_map *map_data, t_mlx *mlx_data)
@@ -34,31 +43,23 @@ static void	connect_x_window(t_map *map_data, t_mlx *mlx_data)
 		ft_putendl_error("Error\n Init mlx failed");
 		free_strings_array(map_data->map);//Create an error_exit
 	}
-	mlx_data->win_ptr = mlx_new_window(mlx_data->mlx_ptr,
-		PICTURE_SIZE * map_data->width,
-		PICTURE_SIZE * map_data->height, NAME);
-	if (!mlx_data->win_ptr)
+	/*	*	Create window	*	*/
+	if (!create_window(map_data, mlx_data))//Or exit inside, 
+					       //in case of error
 	{
+		if (!mlx_data->win_ptr)
 		ft_putendl_error("Error\n Create window failed");
 		mlx_destroy_display(mlx_data->mlx_ptr);
 		free(mlx_data->mlx_ptr);//Do this go here
 		free_strings_array(map_data->map);//Create an error_exit
 	}
-	mlx_data->img_ptr = mlx_xpm_file_to_image(mlx_data->mlx_ptr,
-		PILOT_DOWN, &picture_size, &picture_size);
-	while (y <= map_data->height)
-	{
-		while (x <= map_data->width)
-		{
-			mlx_put_image_to_window(mlx_data->mlx_ptr,
-				mlx_data->win_ptr, mlx_data->img_ptr,
-				x * PICTURE_SIZE, y * PICTURE_SIZE);
-			x++;
-		}
-		y++;
-		x = 0;
-	}
-	mlx_loop(mlx_data->mlx_ptr);
+	/*	*	Draw map	*	*/
+	print_map(map_data, mlx_data);
+	//Hooks
+	mlx_hook(mlx_data->win_ptr, 2, 1L << 0, key_press, structure);
+	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, detroy, structure);
+	mlx_loop(mlx_data->mlx_ptr);//This go down
+	/*	Do this in destroy hook *	*/
 	mlx_destroy_window(mlx_data->mlx_ptr, mlx_data->win_ptr);
 	mlx_destroy_display(mlx_data->mlx_ptr);
 				//Also, I have to free win_ptr?
