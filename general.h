@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:08:58 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:57:40 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	add_new_line(char *read_line, t_list **lines_list, t_map *data);
 /*	*	manage_window	*	*/
 int		create_window(t_map *map_data, t_mlx *mlx_data);
 void	print_map(t_map *map_data, t_mlx *mlx_data);
+int		key_press(int key, t_mlx *mlx);
 
 #endif

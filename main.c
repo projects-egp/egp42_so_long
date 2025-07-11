@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:18:39 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:47:39 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	connect_x_window(t_mlx *mlx_data)
 	if (!mlx_data->mlx_ptr)
 	{
 		ft_putendl_error("Error\n Init mlx failed");
-		free_strings_array(map_data->map);//Create an error_exit
+		free_strings_array(mlx_data->map_data->map);//Create an error_exit
 	}
 	if (!create_window(mlx_data->map_data, mlx_data))//Or exit inside, 
 					       //in case of error
@@ -44,7 +44,7 @@ static void	connect_x_window(t_mlx *mlx_data)
 		ft_putendl_error("Error\n Create window failed");
 		mlx_destroy_display(mlx_data->mlx_ptr);
 		free(mlx_data->mlx_ptr);//Do this go here
-		free_strings_array(map_data->map);//Create an error_exit
+		free_strings_array(mlx_data->map_data->map);//Create an error_exit
 	}
 	print_map(mlx_data->map_data, mlx_data);
 	mlx_hook(mlx_data->win_ptr, 2, 1L << 0, key_press, mlx_data);

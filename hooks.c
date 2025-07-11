@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:31:17 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:57:09 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 		data_from->p_position[0], data_from->p_position[1]);
 }
 
-int	key_press(int key, t_mlx *mlx, t_map *map)
+int	key_press(int key, t_mlx *mlx)
 {
 	int	x;
 	int	y;
@@ -38,11 +38,11 @@ int	key_press(int key, t_mlx *mlx, t_map *map)
 
 	x = p_position[0];
 	y = p_position[1];
-	target = set_target(key, x, y, map->map);
-	rotate_player(key, x, y, map->map);
+	target = set_target(key, x, y, mlx->map->map);
+	rotate_player(key, x, y, mlx->map->map);
 //	if (key == ESC)
 //		destroy();
 	else if (target != '1' && target != 'e')
-		move_player(key, mlx, map, target);
+		move_player(key, mlx, mlx->map, target);
 	return (0);
 }
