@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 12:22:00 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:00:25 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	increase_pce_flags(char item, int x_pos, t_map *map_data)
 		map_data->e_flag++;
 		if (map_data->p_flag > 1)
 			map_data->error_flag = WRONG_E;
+		map_data->e_position[0] = x_pos;
+		map_data->e_position[1] = map_data->height;
 	}
 }
 

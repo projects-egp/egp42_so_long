@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 12:35:57 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:00:57 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	initialize_map_data(t_map *map_data)
 	map_data->width = 0;
 	map_data->p_position[0] = 0;
 	map_data->p_position[1] = 0;
+	map_data->e_position[0] = 0;
+	map_data->e_position[1] = 0;
 	map_data->p_flag = 0;
 	map_data->c_flag = 0;
 	map_data->e_flag = 0;
