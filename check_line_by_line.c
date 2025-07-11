@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 15:57:00 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:22:00 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 			map_data->error_flag = EMPTY_FILE;
 		if (read_line && read_line[0] != '\0')
 			check_forbidden_chars(read_line, map_data);
-		if (!map_data->error_flag && read_line[0] != 0)
+		if (!map_data->error_flag && read_line && read_line[0] != 0)
 		{
 			add_new_line(read_line, lines, map_data);
 			map_data->height++;
 		}
-		if (read_line[0] == 0)
+		if (read_line && read_line[0] == 0)
 			free_string_and_null(&read_line);
 	}
 	if (map_data->error_flag || !map_is_correct(map_data, lines))
-		close_clean_and_exit_error(fd, lines, map_data);
+		close_clean_and_exit_error(fd, read_line, lines, map_data);
 }
