@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 15:33:04 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:59:36 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		p_position[2];
+	int		e_position[2];
 	int		p_flag;
 	int		c_flag;
 	int		e_flag;
@@ -66,8 +67,8 @@ typedef struct s_mlx
 	void	*img_pilot_left;
 	void	*img_pilot_right;
 	void	*img_pilot_up;
-	void	*img_plane_repaired;
 	void	*img_plane;
+	void	*img_plane_repaired;
 	void	*img_tree;
 	int		moves;
 }	t_mlx;
