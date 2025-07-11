@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_utils.c                                       :+:      :+:    :+:   */
+/*   move_execute_and_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:00:04 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:36:36 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:46:19 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_moves(int moves)
 	}
 }
 
-/*some*/	special_event(t_map *data, char target)
+void	special_event(t_map *data, char target)
 {
 	int	x_exit;
 	int	y_exit;
@@ -51,7 +51,7 @@ void	print_moves(int moves)
 	}
 }
 
-/**some*/	rotate_player(int key, int x, int y, t_map *player)
+void	rotate_player(int key, int x, int y, t_map *player)
 {
 	if (key == UP)
 		player->map[y][x] = 'u';
@@ -79,7 +79,7 @@ char	set_target(int key, int x, int y, char **map)
 	return (target);
 }
 
-/*Something*/	execute_move(int key, int x, int y, t_map *data)
+void	execute_move(int key, int x, int y, t_map *data)
 {
 	if (key == UP)
 	{
