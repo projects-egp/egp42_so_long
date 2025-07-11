@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/11 18:04:11 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/12 00:54:15 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ all: $(NAME)
 
 $(LIBFT):
 	$(info Compiling Libft...)
-	@make -C $(LIBFT_DIR)
+	@make -s -C $(LIBFT_DIR)
 
 $(MLX):
 	$(info CREATED $(MLX))
@@ -51,7 +51,7 @@ fsanitize: $(NAME)
 
 clean:
 	$(RM) $(OBJECTS)
-	@make -C $(LIBFT_DIR) clean
+	@make -s -C $(LIBFT_DIR) clean
 	$(info REMOVED OBJECTS AND LIBFT/OBJECTS)
 
 compclean: all clean
