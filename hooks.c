@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:57:09 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 01:15:16 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 	choose_tile_to_print(mlx, data_from->map, x, y);
 	if (target == 'c' || target == 'f')
 		special_event(data_from, target);
-	execute_move(key, x, y, map);
+	execute_move(key, x, y, data_from);
 	choose_tile_to_print(mlx, data_from->map,
 		data_from->p_position[0], data_from->p_position[1]);
 }
@@ -36,13 +36,13 @@ int	key_press(int key, t_mlx *mlx)
 	int	y;
 	char	target;
 
-	x = p_position[0];
-	y = p_position[1];
-	target = set_target(key, x, y, mlx->map->map);
-	rotate_player(key, x, y, mlx->map->map);
+	x = mlx->map_data->p_position[0];
+	y = mlx->map_data->p_position[1];
+	target = set_target(key, x, y, mlx->map_data->map);
+	rotate_player(key, x, y, mlx->map_data);
 //	if (key == ESC)
 //		destroy();
-	else if (target != '1' && target != 'e')
-		move_player(key, mlx, mlx->map, target);
+	/*else*/ if (target != '1' && target != 'e')
+		move_player(key, mlx, mlx->map_data, target);
 	return (0);
 }
