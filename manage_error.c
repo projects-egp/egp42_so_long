@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 15:13:19 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:44:40 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_error(t_map *map_data)
 	if (map_data->error_flag == 2)
 		ft_putendl_error("Error\nWrong number of Exit position on map");
 	if (map_data->error_flag == 3)
-		ft_putendl_error("Error\nNeeded at east one item C on the map");
+		ft_putendl_error("Error\nNeeded one item C on map, at least");
 	if (map_data->error_flag == 4)
 		ft_putendl_error("Error\nWrong size of map");
 	if (map_data->error_flag == 5)
@@ -36,9 +36,14 @@ void	print_error(t_map *map_data)
 	exit(EXIT_FAILURE);
 }
 
-void	close_clean_and_exit_error(int fd, t_list **lines_list, t_map *data)
+void	close_clean_and_exit_error(int fd, char *read_line,
+		t_list **lines_list, t_map *data)
 {
 	close(fd);
+	if (!read_line && !data->width && !data->height)
+		data->error_flag = EMPTY_FILE;
+	else
+		free(read_line);
 	free_full_list_and_contents(lines_list);
 	print_error(data);
 }
