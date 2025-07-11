@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:01:31 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:18:33 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:19:49 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	len;
+
 	if (!s)
 		return ;
 	if (fd >= 0)
