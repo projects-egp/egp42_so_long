@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 18:07:25 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:08:58 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,5 @@ void	add_new_line(char *read_line, t_list **lines_list, t_map *data);
 /*	*	manage_window	*	*/
 int		create_window(t_map *map_data, t_mlx *mlx_data);
 void	print_map(t_map *map_data, t_mlx *mlx_data);
-
-/****DELETE BELOW HERE*****/
-# define WIN_SIZE_X	976
-# define WIN_SIZE_Y	576
-
-/*Remember bpp == bits_per_pixel*/
-typedef	struct	s_data
-{
-	void	*img;
-	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
-}	t_data;
-
-void	*create_image(void *mlx_ptr);
-void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif
