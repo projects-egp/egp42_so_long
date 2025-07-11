@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 15:35:23 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:26:20 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,14 @@ static void	initialize_mlx_data(t_mlx *mlx_data)
 	mlx_data->img_pilot_left = NULL;
 	mlx_data->img_pilot_right = NULL;
 	mlx_data->img_pilot_up = NULL;
-	mlx_data->img_plane_repaired = NULL;
 	mlx_data->img_plane = NULL;
+	mlx_data->img_plane_repaired = NULL;
 	mlx_data->img_tree = NULL;
 	mlx_data->moves = 0;
 }
 
 static void	connect_x_window(t_map *map_data, t_mlx *mlx_data)
 {
-	int	x;
-	int	y;
-	int	picture_size;
-
-	x = 0;
-	y = 0;
-	picture_size = PICTURE_SIZE;
 	mlx_data->mlx_ptr = mlx_init();
 	if (!mlx_data->mlx_ptr)
 	{
