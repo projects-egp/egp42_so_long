@@ -6,13 +6,13 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:53:02 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:31:17 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-static /*Some*/	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
+static void	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 {
 	int	x;
 	int	y;
@@ -30,9 +30,8 @@ static /*Some*/	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 		data_from->p_position[0], data_from->p_position[1]);
 }
 
-void /*?*/key_press(t_mlx *mlx, t_map *map)
+int	key_press(int key, t_mlx *mlx, t_map *map)
 {
-	int	key;//Do this go as a parameter?
 	int	x;
 	int	y;
 	char	target;
@@ -41,8 +40,9 @@ void /*?*/key_press(t_mlx *mlx, t_map *map)
 	y = p_position[1];
 	target = set_target(key, x, y, map->map);
 	rotate_player(key, x, y, map->map);
-	if (key == ESC)
+//	if (key == ESC)
 //		destroy();
 	else if (target != '1' && target != 'e')
 		move_player(key, mlx, map, target);
+	return (0);
 }

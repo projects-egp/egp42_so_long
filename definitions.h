@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 21:59:36 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 00:21:37 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@
 # define PLANE "./textures/plane.xpm"
 # define PLANE_REPAIRED "./textures/plane_repaired.xpm"
 # define TREE "./textures/tree.xpm"
+//
+/*	*    TEXTURES PATHS 	*	*/
+# define UP 119
+# define RIGHT 100
+# define DOWN 115
+# define LEFT 97
 
 typedef struct s_map
 {
@@ -59,6 +65,7 @@ typedef struct s_map
 
 typedef struct s_mlx
 {
+	t_map	*map_data;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_grass;
