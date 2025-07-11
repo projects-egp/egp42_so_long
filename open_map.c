@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:35:07 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/10 16:01:53 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:35:57 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	store_map(t_map *data, t_list **lines)
 	while (i >= 0)
 	{
 		data->map[i] = ft_substr((*lines)->content, 0, data->width);
-		ft_printf("Stored %s, %d position\n", data->map[i], i);//debug
 		free_first_node_and_content(lines);
 		i--;
 	}
@@ -100,9 +99,7 @@ int	open_map(char *map_pathname, t_map *map_data)
 	close(fd_map);
 	store_map(map_data, &lines);
 	flood_fill(map_data, map_data->p_position[0], map_data->p_position[1]);
-	ft_printf("Middle line after floodfill:\n\t%s\n", map_data->map[1]);
 	if (!can_reach_special_cells(map_data))
 		print_error(map_data);
-	ft_printf("Alright\n");//debug
 	return (1);
 }
