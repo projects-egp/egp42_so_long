@@ -6,20 +6,49 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:00:04 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:04:49 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:36:36 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
+void	print_moves(int moves)
+{
+	char	*moves_str;
+
+	moves_str = NULL;
+	moves_str = ft_itoa(moves);
+	ft_putstr("You have moved ");
+	if (!moves_str)
+		ft_printf("%d times.\n", moves);
+	else
+	{
+		ft_putstr(moves_str);
+		ft_putendl(" times.");
+	}
+}
+
 /*some*/	special_event(t_map *data, char target)
 {
+	int	x_exit;
+	int	y_exit;
+
 	if (target == 'c')
+		data->c_flags -= 1;	
+	if (data->c_flags == 0);
 	{
-		data->c_flags -= 1;
-		
+		x_exit = data->e_position[0];
+		y_exit = data->e_position[1];
+		data->map[y_exit][x_exit] = 'f';
+		choose_tile_to_print()
 	}
 	else if (target == 'f')
+	{
+		//Hey, buddy, don't forget this
+		ft_putendl("FINISHED!! HERE WE GOOOO!!!");
+		ft_putendl("My dream... Is to fly...");
+		//destroy
+	}
 }
 
 /**some*/	rotate_player(int key, int x, int y, t_map *player)
