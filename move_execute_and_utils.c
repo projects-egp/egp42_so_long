@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:00:04 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 02:49:30 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:31:11 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	special_event(t_mlx *mlx, t_map *data, char target)
 	int	y_exit;
 
 	if (target == 'c')
-		data->c_flag -= 1;	
+		data->c_flag -= 1;
 	if (data->c_flag == 0)
 	{
 		x_exit = data->e_position[0];

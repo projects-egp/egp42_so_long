@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 14:12:52 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:34:27 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ static void	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 			special_event(mlx, data_from, target);
 		execute_move(key, x, y, data_from);
 		choose_tile_to_print(mlx, data_from->map,
-		data_from->p_position[0], data_from->p_position[1]);
+			data_from->p_position[0], data_from->p_position[1]);
 	}
 }
 
 int	key_press(int key, t_mlx *mlx)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	char	target;
 
 	x = mlx->map_data->p_position[0];

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 14:16:56 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:29:59 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ static void	create_window(t_map *map_data, t_mlx *mlx_data)
 			PICTURE_SIZE * map_data->width,
 			PICTURE_SIZE * map_data->height, GAME_NAME);
 	if (!mlx_data->win_ptr)
+	{
+		mlx_data->error_flag = 1;
+		ft_putendl_error("Error\n Create window with mlx failed");
 		destroy_requested(mlx_data);
+	}
 }
 
 static void	connect_x_window(t_mlx *mlx_data)
@@ -44,12 +48,12 @@ static void	connect_x_window(t_mlx *mlx_data)
 	mlx_data->mlx_ptr = mlx_init();
 	if (!mlx_data->mlx_ptr)
 	{
+		mlx_data->error_flag = 1;
 		ft_putendl_error("Error\n Init mlx failed");
 		destroy_requested(mlx_data);
 	}
-	create_window(mlx_data->map_data, mlx_data)
-	if (!print_map(mlx_data->map_data, mlx_data))
-		destroy_requested(mlx_data);
+	create_window(mlx_data->map_data, mlx_data);
+	print_map(mlx_data->map_data, mlx_data);
 	mlx_hook(mlx_data->win_ptr, 2, 1L << 0, key_press, mlx_data);
 	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, destroy_requested, mlx_data);
 	mlx_loop(mlx_data->mlx_ptr);

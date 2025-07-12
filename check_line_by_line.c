@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 14:01:32 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:21:03 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	wall_check(char *line)
 	i = 0;
 	while (line[i] != '\0' && line[i] != '\n')
 	{
-		if (line[i] != '1') 
+		if (line[i] != '1')
 			return (0);
 		i++;
 	}
