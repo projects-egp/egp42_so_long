@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 14:17:20 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:44:56 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	close_clean_and_exit_error(int fd, char *read_line,
 int		check_width(char *line, t_map *data);
 void	add_new_line(char *read_line, t_list **lines_list, t_map *data);
 /*	*	manage_window	*	*/
-int		print_map(t_map *map_data, t_mlx *mlx_data);
+void	print_map(t_map *map_data, t_mlx *mlx_data);
 void	choose_tile_to_print(t_mlx *mlx, char **map, int x, int y);
 int		destroy_requested(t_mlx *mlx);
 int		key_press(int key, t_mlx *mlx);
