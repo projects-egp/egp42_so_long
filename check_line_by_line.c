@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:20:12 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 22:00:25 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:01:32 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static int	map_is_correct(t_map *map_data, t_list **lines_list)
 	map_size = map_data->width * map_data->height;
 	last_node = ft_lstlast(*lines_list);
 	if (map_data->width <= 2 || map_data->height <= 2
+		|| map_data->width <= 60 || map_data->height <= 32
 		|| map_size < MIN_MAP_SIZE || map_size > MAX_MAP_SIZE)
 		map_data->error_flag = WRONG_SIZE;
 	else if (!wall_check((*lines_list)->content)
@@ -99,7 +100,7 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 	read_line = " ";
 	while (read_line && !map_data->error_flag)
 	{
-		read_line = get_next_line(fd);
+		read_line = get_next_line_extra(fd, 1);
 		if (!read_line && !lines)
 			map_data->error_flag = EMPTY_FILE;
 		if (read_line && read_line[0] != '\0')
@@ -111,6 +112,8 @@ void	check_line_by_line(int fd, t_map *map_data, t_list **lines)
 		}
 		if (read_line && read_line[0] == 0)
 			free_string_and_null(&read_line);
+		if (map_data->error_flag)
+			get_next_line_extra(fd, 0);
 	}
 	if (map_data->error_flag || !map_is_correct(map_data, lines))
 		close_clean_and_exit_error(fd, read_line, lines, map_data);

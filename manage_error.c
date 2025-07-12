@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 19:57:03 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/11 12:44:40 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:06:42 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	print_error(t_map *map_data)
 {
-//If it iss needed, change name to parse_error()
 	if (map_data->map)
 		free_strings_array(map_data->map);
 	if (map_data->error_flag == 1)
@@ -36,7 +35,7 @@ void	print_error(t_map *map_data)
 	exit(EXIT_FAILURE);
 }
 
-void	close_clean_and_exit_error(int fd, char *read_line,
+void	close_clean_and_exit_error(int fd, char read_line[2],
 		t_list **lines_list, t_map *data)
 {
 	close(fd);
@@ -47,5 +46,3 @@ void	close_clean_and_exit_error(int fd, char *read_line,
 	free_full_list_and_contents(lines_list);
 	print_error(data);
 }
-
-

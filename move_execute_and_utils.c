@@ -67,6 +67,7 @@ char	set_target(int key, int x, int y, t_map *data)
 {
 	char	target;
 
+	target = 0;
 	if (key == UP)
 		target = data->map[y - 1][x];
 	if (key == RIGHT)

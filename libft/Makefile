@@ -6,7 +6,7 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 17:15:51 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/10 13:39:29 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/12 12:53:06 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
        ft_strdup.c ft_striteri.c ft_strjoin.c ft_strmapi.c ft_strncmp.c\
        ft_strnstr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strrchr.c\
        ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
-       get_next_line.c get_next_line_utils.c\
+       get_next_line.c get_next_line_extra.c get_next_line_utils.c\
        ft_printf.c manage_chars.c manage_number.c\
        ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c\
        ft_lstsize.c free_first_node.c free_full_list.c\

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 19:06:49 by enrgil-p          #+#    #+#             */
-/*   Updated: 2024/09/08 15:51:38 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 13:38:29 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define MAX_FD 1024/*OPEN_MAX deprecated. ulimit -n says 1024*/
 
 char	*get_next_line(int fd);
+//Extra can free the kept in a parse. Use wisely and carefuly
+char	*get_next_line_extra(int fd, int parse_error_flag);
 /*	Part 2: functions at get_next_line_utils.c	*/
 size_t	strlen_gnl(const char *str);/*			normal	strlen	*/
 char	*end_line(const char *s);/*	like strchr but only for \n	*/
