@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 03:15:42 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:10:16 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_mlx
 	void	*img_plane_repaired;
 	void	*img_tree;
 	int		moves;
+	int		error_flag;
 }	t_mlx;
 
 #endif

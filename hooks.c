@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 02:54:24 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:12:52 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,18 @@ static void	remove_images(t_mlx *mlx)
 
 int	destroy_requested(t_mlx *mlx)
 {
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	if (mlx->win_ptr)
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	remove_images(mlx);
 	free_strings_array(mlx->map_data->map);
-	mlx_destroy_display(mlx->mlx_ptr);
-	free(mlx->mlx_ptr);
-	exit(EXIT_SUCCESS);
+	if (mlx->mlx_ptr)
+	{
+		mlx_destroy_display(mlx->mlx_ptr);
+		free(mlx->mlx_ptr);
+	}
+	if (!mlx->error_flag)
+		exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 	return (0);
 }
 
