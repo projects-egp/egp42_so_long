@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 01:34:51 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 01:49:10 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 # define RIGHT 100
 # define DOWN 115
 # define LEFT 97
+# define ESC 65307
 
 typedef struct s_map
 {

@@ -6,18 +6,33 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 01:40:37 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 02:17:47 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
+
+static void	remove_images(t_mlx *mlx)
+{
+	ir
+}
+
+int	destroy_requested(t_mlx *mlx)
+{
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	remove_images(mlx);
+	free_strings_array(mlx->map_data->map);
+	mlx_destroy_display(mlx->mlx_ptr);
+	free(mlx_mlx_ptr);
+	return (0);
+}
 
 static void	move_player(int key, t_mlx *mlx, t_map *data_from, char target)
 {
 	int	x;
 	int	y;
 
-	x = data_from->p_position[0];//Call this in a function
+	x = data_from->p_position[0];
 	y = data_from->p_position[1];
 	if (key == UP || key == RIGHT || key == DOWN || key == LEFT)
 	{
@@ -43,9 +58,11 @@ int	key_press(int key, t_mlx *mlx)
 	y = mlx->map_data->p_position[1];
 	target = set_target(key, x, y, mlx->map_data);
 	rotate_player(key, x, y, mlx->map_data);
-//	if (key == ESC)
-//		destroy();
-	/*else*/ if (target != '1' && target != 'e')
+	if (key == ESC)
+		destroy_requested(mlx);
+	else if (target != '1' && target != 'e')
 		move_player(key, mlx, mlx->map_data, target);
+	else if (key == UP || key == RIGHT || key == DOWN || key == LEFT)
+		choose_tile_to_print(mlx, mlx->map_data->map, x, y);
 	return (0);
 }
