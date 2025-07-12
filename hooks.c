@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:13:32 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 02:17:47 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 02:54:24 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,24 @@
 
 static void	remove_images(t_mlx *mlx)
 {
-	ir
+	if (mlx->img_grass)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_grass);
+	if (mlx->img_item)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_item);
+	if (mlx->img_pilot_down)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_pilot_down);
+	if (mlx->img_pilot_left)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_pilot_left);
+	if (mlx->img_pilot_right)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_pilot_right);
+	if (mlx->img_pilot_up)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_pilot_up);
+	if (mlx->img_plane)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_plane);
+	if (mlx->img_plane_repaired)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_plane_repaired);
+	if (mlx->img_tree)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_tree);
 }
 
 int	destroy_requested(t_mlx *mlx)
@@ -23,7 +40,8 @@ int	destroy_requested(t_mlx *mlx)
 	remove_images(mlx);
 	free_strings_array(mlx->map_data->map);
 	mlx_destroy_display(mlx->mlx_ptr);
-	free(mlx_mlx_ptr);
+	free(mlx->mlx_ptr);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 

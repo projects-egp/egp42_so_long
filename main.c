@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:28:09 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 00:47:39 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 02:45:12 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,11 @@ static void	connect_x_window(t_mlx *mlx_data)
 		free(mlx_data->mlx_ptr);//Do this go here
 		free_strings_array(mlx_data->map_data->map);//Create an error_exit
 	}
-	print_map(mlx_data->map_data, mlx_data);
+	if (!print_map(mlx_data->map_data, mlx_data))
+		destroy_requested(mlx_data);
 	mlx_hook(mlx_data->win_ptr, 2, 1L << 0, key_press, mlx_data);
-//	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, detroy_requested, structure);
-	mlx_loop(mlx_data->mlx_ptr);//This go down
-	/*	Do this in destroy hook *	*/
-	/*Delete below here*/
-//	mlx_destroy_window(mlx_data->mlx_ptr, mlx_data->win_ptr);
-//	mlx_destroy_display(mlx_data->mlx_ptr);
-				//Also, I have to free win_ptr?
-//	free(mlx_data->mlx_ptr);//Do this go here
+	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, destroy_requested, mlx_data);
+	mlx_loop(mlx_data->mlx_ptr);
 }
 
 int	main(int arg_counter, char **arg_vector)

@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:00:04 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 02:07:03 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 02:49:30 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	print_moves(int moves)
 	{
 		ft_putstr(moves_str);
 		ft_putendl(" times.");
+		free(moves_str);
 	}
 }
 
@@ -44,10 +45,9 @@ void	special_event(t_mlx *mlx, t_map *data, char target)
 	}
 	if (target == 'f')
 	{
-		//Hey, buddy, don't forget this
 		ft_putendl("FINISHED!! HERE WE GOOOO!!!");
 		ft_putendl("My dream... Is to fly...");
-		//destroy
+		destroy_requested(mlx);
 	}
 }
 
