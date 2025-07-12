@@ -6,13 +6,23 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:53:41 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 01:05:57 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 02:42:25 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-static void	link_images(t_mlx *mlx_data)
+static int	check_link_error(t_mlx *mlx)
+{
+	if (!mlx->img_grass || !mlx->img_item || !mlx->img_pilot_up
+		|| !mlx->img_pilot_right || !mlx->img_pilot_down
+		|| !mlx->img_pilot_left || !mlx->img_plane
+		|| !mlx->img_plane_repaired || !mlx->img_tree)
+		return (0);
+	return (1);
+}
+
+static int	link_images(t_mlx *mlx_data)
 {//If you want to return, int
 	int	picture_size;
 
@@ -35,7 +45,7 @@ static void	link_images(t_mlx *mlx_data)
 		PLANE_REPAIRED, &picture_size, &picture_size);
 	mlx_data->img_tree = mlx_xpm_file_to_image(mlx_data->mlx_ptr,
 		TREE, &picture_size, &picture_size);
-	//return(/*check_link_error(mlx_data));
+	return(check_link_error(mlx_data));
 }
 
 static void	print_tile(t_mlx *mlx, void *image, int x, int y)
@@ -71,18 +81,15 @@ void	choose_tile_to_print(t_mlx *mlx, char **map, int x, int y)
 		print_tile(mlx, mlx->img_pilot_right, x, y);
 }
 
-/*int*/void	print_map(t_map *map_data, t_mlx *mlx_data)
+int	print_map(t_map *map_data, t_mlx *mlx_data)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-/*	if (!*/link_images(mlx_data);//)	
-		//Or just return void and free and exit here, as you thought
-//		return (/*0, and free things in connect_x_window*/);
-	//In case of error, clean mlx_data and map_data
-	//Then, read map_data->map and print following chars
+	if (!link_images(mlx_data))	
+		return (0);
 	while (y < map_data->height)
 	{
 		while (x < map_data->width)
@@ -93,5 +100,5 @@ void	choose_tile_to_print(t_mlx *mlx, char **map, int x, int y)
 		y++;
 		x = 0;
 	}
-	//return (1);
+	return (1);
 }
