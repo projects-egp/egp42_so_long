@@ -6,13 +6,13 @@
 #    By: enrgil-p <enrgil-p@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 22:51:58 by enrgil-p          #+#    #+#              #
-#    Updated: 2025/07/12 12:12:47 by enrgil-p         ###   ########.fr        #
+#    Updated: 2025/07/12 14:44:28 by enrgil-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 SOURCES =	main.c map_format.c open_map.c check_line_by_line.c\
-		parse_utils.c manage_error.c create_window.c print_map.c\
+		parse_utils.c manage_error.c print_map.c\
 		hooks.c move_execute_and_utils.c\
 
 LIBFT_DIR = ./libft
