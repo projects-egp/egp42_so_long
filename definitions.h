@@ -6,7 +6,7 @@
 /*   By: enrgil-p <enrgil-p@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 21:28:20 by enrgil-p          #+#    #+#             */
-/*   Updated: 2025/07/12 03:12:29 by enrgil-p         ###   ########.fr       */
+/*   Updated: 2025/07/12 03:15:42 by enrgil-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 //
 /*	* SIZES values 	*	*/
 # define MIN_MAP_SIZE 15// == (3 * 5)
-# define MAX_MAP_SIZE 1920// == (77 * 40)
+# define MAX_MAP_SIZE 1920// == (60 * 32) * PICTURE_SIZE
 # define PICTURE_SIZE 64
 //
 /*	* ERROR_FLAG values 	*	*/
