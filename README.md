@@ -3,6 +3,7 @@ _This project has been created as part of the 42 curriculum by enrgil-p._
 so_long is my first project that displays a window on screen, working with images and managing keyboard events. 
 Consist on a game in 2D, with a character that must collect one item at least and then move to an exit point from a map.
 
+
 The player can interact with 'W', 'A', 'S' and 'D' keys to move the character on the game map.
 Another option is to press Esc or the 'x' button from the window with mouse to close the game's window.
 
