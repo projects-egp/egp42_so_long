@@ -47,3 +47,9 @@ For execute this program, it is required a machine with X11.
       ./so_long maps/[name_of_map].ber
 
 There are some example maps on maps/ folder, so program can be tested with correct and wrong formats. A map with correct format must have a name ended by ".ber", rectangular size completely surronded by char '1', at least one item to collect, one character, one exit, and a free way to reach every item and exit point.
+
+<img width="284" height="352" alt="map_format" src="https://github.com/user-attachments/assets/bbbe1614-812d-4863-92d3-9698b1e00860" />
+
+P is initial position for player. E, exit. C are items to collect before you can enter on exit. 1 represents obstacles, and 0 are free positions in which player can move on.
+
+
