@@ -52,4 +52,6 @@ There are some example maps on maps/ folder, so program can be tested with corre
 
 P is initial position for player. E, exit. C are items to collect before you can enter on exit. 1 represents obstacles, and 0 are free positions in which player can move on.
 
+You can close program by click on Esc key, or click with mouse to 'x' on window. Also, if you collect all the items and reach the exit, the window will be closed as end of the program execution.
+
 
