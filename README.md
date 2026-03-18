@@ -7,6 +7,8 @@ Consist on a game in 2D, with a character that must collect one item at least an
 The player can interact with 'W', 'A', 'S' and 'D' keys to move the character on the game map.
 Another option is to press Esc or the 'x' button from the window with mouse to close the game's window.
 
+Textures done by Jaime Gil Piqueras.
+
 https://github.com/user-attachments/assets/1e28fd75-d5e8-4280-8135-e2b0bd5c5bf7
 
 
