@@ -9,7 +9,7 @@ Another option is to press Esc or the 'x' button from the window with mouse to c
 
 Textures done by Jaime Gil Piqueras.
 
-https://github.com/user-attachments/assets/1e28fd75-d5e8-4280-8135-e2b0bd5c5bf7
+https://github.com/user-attachments/assets/45b776cc-0b13-4ad0-a51c-b7521c306e48
 
 
 <h4>Main learnings from this project</h4>
